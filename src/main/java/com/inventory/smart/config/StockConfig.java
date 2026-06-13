@@ -1,60 +1,53 @@
 package com.inventory.smart.config;
 
-import jakarta.validation.constraints.Min;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * Configuración de umbrales de stock para el sistema de alertas.
- * <p>
- * Los valores se cargan desde {@code application.yml} bajo el prefijo
- * {@code inventario.stock}. Si no se especifican, se usan los valores por defecto.
- * </p>
- * <ul>
- *   <li><b>minimo</b>: umbral por debajo del cual se activa la alerta BAJO (default: 10)</li>
- *   <li><b>critico</b>: umbral por debajo del cual se activa la alerta CRITICO (default: 3)</li>
- * </ul>
+ * Propiedades de configuración para los umbrales de stock.
+ * Se leen desde application.yml bajo el prefijo "inventario.stock".
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
-@Component
-@Validated
+@Configuration
 @ConfigurationProperties(prefix = "inventario.stock")
 public class StockConfig {
 
-    /** Umbral mínimo de stock; por debajo se considera BAJO. */
-    @Min(value = 1, message = "El stock mínimo debe ser al menos 1")
     private int minimo = 10;
-
-    /** Umbral crítico de stock; por debajo se considera CRITICO. */
-    @Min(value = 0, message = "El stock crítico no puede ser negativo")
     private int critico = 3;
 
     /**
-     * @return el umbral mínimo de stock
+     * Obtiene el umbral mínimo.
+     *
+     * @return el umbral mínimo
      */
     public int getMinimo() {
         return minimo;
     }
 
     /**
-     * @param minimo nuevo valor para el umbral mínimo
+     * Establece el umbral mínimo.
+     *
+     * @param minimo el nuevo umbral mínimo
      */
     public void setMinimo(int minimo) {
         this.minimo = minimo;
     }
 
     /**
-     * @return el umbral crítico de stock
+     * Obtiene el umbral crítico.
+     *
+     * @return el umbral crítico
      */
     public int getCritico() {
         return critico;
     }
 
     /**
-     * @param critico nuevo valor para el umbral crítico
+     * Establece el umbral crítico.
+     *
+     * @param critico el nuevo umbral crítico
      */
     public void setCritico(int critico) {
         this.critico = critico;

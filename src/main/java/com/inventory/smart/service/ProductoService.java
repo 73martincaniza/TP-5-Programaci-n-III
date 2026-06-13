@@ -2,83 +2,77 @@ package com.inventory.smart.service;
 
 import com.inventory.smart.dto.ProductoRequest;
 import com.inventory.smart.dto.ProductoResponse;
-import com.inventory.smart.exception.ResourceNotFoundException;
 
 import java.util.List;
 
 /**
- * Servicio de negocio para la gestión de productos.
- * <p>
- * Define las operaciones de CRUD, búsqueda, filtrado y ordenamiento
- * aplicables a los productos del inventario.
- * </p>
+ * Servicio encargado de la gestión de productos.
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public interface ProductoService {
 
     /**
-     * Lista productos aplicando filtros opcionales.
+     * Lista productos con filtros opcionales.
      *
-     * @param categoria nombre de categoría para filtrar (puede ser {@code null})
-     * @param precioMin precio mínimo para filtrar (puede ser {@code null})
-     * @param precioMax precio máximo para filtrar (puede ser {@code null})
-     * @param enStock   {@code true} para solo productos con stock > 0 (puede ser {@code null})
-     * @return lista de productos que cumplen los filtros como DTOs
+     * @param categoriaId ID de categoría opcional
+     * @param precioMin precio mínimo opcional
+     * @param precioMax precio máximo opcional
+     * @param enStock filtrar solo los que tienen stock > 0
+     * @return lista de productos
      */
-    List<ProductoResponse> findAll(String categoria, Double precioMin, Double precioMax, Boolean enStock);
+    List<ProductoResponse> listar(Long categoriaId, Double precioMin, Double precioMax, Boolean enStock);
 
     /**
-     * Busca un producto por su identificador único.
+     * Busca un producto por ID.
      *
-     * @param id identificador del producto
-     * @return el producto como DTO
-     * @throws ResourceNotFoundException si el producto no existe
+     * @param id identificador
+     * @return producto encontrado
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si no existe
      */
-    ProductoResponse findById(Long id) throws ResourceNotFoundException;
+    ProductoResponse findById(Long id);
 
     /**
-     * Crea un nuevo producto a partir de los datos de la petición.
+     * Crea un producto.
      *
-     * @param request datos del producto a crear
-     * @return el producto creado como DTO
-     * @throws ResourceNotFoundException si la categoría asociada no existe
+     * @param request datos del producto
+     * @return producto creado
      */
-    ProductoResponse create(ProductoRequest request) throws ResourceNotFoundException;
+    ProductoResponse crear(ProductoRequest request);
 
     /**
      * Actualiza un producto existente.
      *
-     * @param id      identificador del producto a actualizar
-     * @param request nuevos datos del producto
-     * @return el producto actualizado como DTO
-     * @throws ResourceNotFoundException si el producto o la categoría no existen
+     * @param id identificador
+     * @param request nuevos datos
+     * @return producto actualizado
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si no existe
      */
-    ProductoResponse update(Long id, ProductoRequest request) throws ResourceNotFoundException;
+    ProductoResponse actualizar(Long id, ProductoRequest request);
 
     /**
-     * Elimina un producto por su identificador.
+     * Elimina un producto.
      *
-     * @param id identificador del producto a eliminar
-     * @throws ResourceNotFoundException si el producto no existe
+     * @param id identificador
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si no existe
      */
-    void delete(Long id) throws ResourceNotFoundException;
+    void eliminar(Long id);
 
     /**
-     * Busca productos cuyo nombre contenga el texto indicado (case-insensitive).
+     * Busca productos por nombre.
      *
-     * @param query texto de búsqueda
-     * @return lista de productos que coinciden
+     * @param q texto a buscar
+     * @return lista de productos coincidentes
      */
-    List<ProductoResponse> buscarPorNombre(String query);
+    List<ProductoResponse> buscarPorNombre(String q);
 
     /**
-     * Lista todos los productos ordenados por el campo y dirección especificados.
+     * Lista productos ordenados.
      *
-     * @param campo campo por el cual ordenar: "precio", "stock" o "nombre"
-     * @param orden dirección: "asc" o "desc"
-     * @return lista ordenada de productos como DTOs
+     * @param campo campo por el cual ordenar (nombre, precio, stock)
+     * @param orden asc o desc
+     * @return lista ordenada
      */
-    List<ProductoResponse> findAllOrderedBy(String campo, String orden);
+    List<ProductoResponse> listarOrdenados(String campo, String orden);
 }

@@ -1,148 +1,166 @@
 package com.inventory.smart.model;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 /**
- * Representa un movimiento de inventario (entrada o salida) registrado en el sistema.
- * <p>
- * Cada movimiento está asociado a un producto mediante {@code productoId} (composición)
- * y lleva una marca de tiempo automática. Esta clase es inmutable.
- * </p>
+ * Representa el registro de una entrada o salida de stock para un producto.
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public class MovimientoInventario {
-
-    /** Identificador único del movimiento. */
-    private final Long id;
-
-    /** Identificador del producto asociado al movimiento. */
-    private final Long productoId;
-
-    /** Tipo de movimiento: ENTRADA o SALIDA. */
-    private final TipoMovimiento tipo;
-
-    /** Cantidad de unidades movidas (siempre positiva). */
-    private final int cantidad;
-
-    /** Fecha y hora en que se registró el movimiento. */
-    private final LocalDateTime fecha;
-
-    /** Motivo o justificación del movimiento. */
-    private final String motivo;
+    private Long id;
+    private Long productoId;
+    private TipoMovimiento tipo;
+    private int cantidad;
+    private int stockResultante;
+    private String motivo;
+    private LocalDateTime fecha;
 
     /**
-     * Construye un nuevo movimiento de inventario con fecha actual.
+     * Crea un nuevo registro de movimiento de inventario.
      *
-     * @param id         identificador único (puede ser {@code null} para nuevos)
+     * @param id identificador del movimiento
      * @param productoId identificador del producto asociado
-     * @param tipo       tipo de movimiento
-     * @param cantidad   cantidad de unidades
-     * @param motivo     motivo del movimiento
-     * @throws NullPointerException     si {@code productoId}, {@code tipo} o {@code motivo} son {@code null}
-     * @throws IllegalArgumentException si {@code cantidad} es negativa o cero
+     * @param tipo tipo de movimiento (ENTRADA o SALIDA)
+     * @param cantidad cantidad involucrada en el movimiento
+     * @param stockResultante cantidad final de stock luego del movimiento
+     * @param motivo justificación o nota del movimiento
+     * @param fecha marca de tiempo del movimiento
      */
-    public MovimientoInventario(Long id, Long productoId, TipoMovimiento tipo, int cantidad, String motivo) {
-        this(id, productoId, tipo, cantidad, LocalDateTime.now(), motivo);
-    }
-
-    /**
-     * Construye un nuevo movimiento de inventario con fecha explícita.
-     *
-     * @param id         identificador único
-     * @param productoId identificador del producto asociado
-     * @param tipo       tipo de movimiento
-     * @param cantidad   cantidad de unidades
-     * @param fecha      fecha y hora del movimiento
-     * @param motivo     motivo del movimiento
-     * @throws NullPointerException     si {@code productoId}, {@code tipo}, {@code fecha} o {@code motivo} son {@code null}
-     * @throws IllegalArgumentException si {@code cantidad} es negativa o cero
-     */
-    public MovimientoInventario(Long id, Long productoId, TipoMovimiento tipo, int cantidad,
-                                LocalDateTime fecha, String motivo) {
-        if (cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad debe ser positiva");
-        }
+    public MovimientoInventario(Long id, Long productoId, TipoMovimiento tipo, int cantidad, int stockResultante, String motivo, LocalDateTime fecha) {
         this.id = id;
-        this.productoId = Objects.requireNonNull(productoId, "El producto no puede ser nulo");
-        this.tipo = Objects.requireNonNull(tipo, "El tipo de movimiento no puede ser nulo");
+        this.productoId = productoId;
+        this.tipo = tipo;
         this.cantidad = cantidad;
-        this.fecha = Objects.requireNonNull(fecha, "La fecha no puede ser nula");
-        this.motivo = Objects.requireNonNull(motivo, "El motivo no puede ser nulo");
+        this.stockResultante = stockResultante;
+        this.motivo = motivo;
+        this.fecha = fecha;
     }
 
     /**
-     * @return el identificador único del movimiento
+     * Obtiene el ID del movimiento.
+     *
+     * @return ID del movimiento
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * @return el identificador del producto asociado
+     * Establece el ID del movimiento.
+     *
+     * @param id ID a establecer
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Obtiene el ID del producto afectado.
+     *
+     * @return ID del producto
      */
     public Long getProductoId() {
         return productoId;
     }
 
     /**
-     * @return el tipo de movimiento
+     * Establece el ID del producto afectado.
+     *
+     * @param productoId ID del producto
+     */
+    public void setProductoId(Long productoId) {
+        this.productoId = productoId;
+    }
+
+    /**
+     * Obtiene el tipo de movimiento.
+     *
+     * @return tipo de movimiento
      */
     public TipoMovimiento getTipo() {
         return tipo;
     }
 
     /**
-     * @return la cantidad de unidades movidas
+     * Establece el tipo de movimiento.
+     *
+     * @param tipo nuevo tipo
+     */
+    public void setTipo(TipoMovimiento tipo) {
+        this.tipo = tipo;
+    }
+
+    /**
+     * Obtiene la cantidad de stock movida.
+     *
+     * @return cantidad
      */
     public int getCantidad() {
         return cantidad;
     }
 
     /**
-     * @return la fecha y hora del movimiento
+     * Establece la cantidad de stock movida.
+     *
+     * @param cantidad cantidad
      */
-    public LocalDateTime getFecha() {
-        return fecha;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     /**
-     * @return el motivo del movimiento
+     * Obtiene el stock resultante tras el movimiento.
+     *
+     * @return stock resultante
+     */
+    public int getStockResultante() {
+        return stockResultante;
+    }
+
+    /**
+     * Establece el stock resultante tras el movimiento.
+     *
+     * @param stockResultante stock resultante
+     */
+    public void setStockResultante(int stockResultante) {
+        this.stockResultante = stockResultante;
+    }
+
+    /**
+     * Obtiene el motivo del movimiento.
+     *
+     * @return motivo
      */
     public String getMotivo() {
         return motivo;
     }
 
     /**
-     * Compara por igualdad basándose exclusivamente en el {@code id}.
+     * Establece el motivo del movimiento.
      *
-     * @param o el objeto a comparar
-     * @return {@code true} si ambos tienen el mismo {@code id} no nulo
+     * @param motivo nuevo motivo
      */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MovimientoInventario that)) return false;
-        return id != null && Objects.equals(id, that.id);
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
     }
 
     /**
-     * @return código hash basado en el {@code id}
+     * Obtiene la fecha y hora del movimiento.
+     *
+     * @return fecha
      */
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
     /**
-     * @return representación en cadena del movimiento
+     * Establece la fecha y hora del movimiento.
+     *
+     * @param fecha fecha a establecer
      */
-    @Override
-    public String toString() {
-        return "MovimientoInventario{id=" + id + ", productoId=" + productoId
-                + ", tipo=" + tipo + ", cantidad=" + cantidad + ", fecha=" + fecha
-                + ", motivo='" + motivo + "'}";
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 }

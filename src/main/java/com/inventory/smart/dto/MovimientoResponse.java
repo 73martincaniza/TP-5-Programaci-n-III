@@ -1,45 +1,28 @@
 package com.inventory.smart.dto;
 
-import com.inventory.smart.model.MovimientoInventario;
-
+import com.inventory.smart.model.TipoMovimiento;
 import java.time.LocalDateTime;
 
 /**
- * DTO inmutable para las respuestas que representan un movimiento de inventario.
+ * Record DTO para devolver los datos de un movimiento.
  *
- * @param id         identificador único del movimiento
- * @param productoId identificador del producto asociado
- * @param tipo       tipo de movimiento como cadena ("ENTRADA" o "SALIDA")
- * @param cantidad   cantidad de unidades movidas
- * @param fecha      fecha y hora del movimiento
- * @param motivo     motivo del movimiento
- *
- * @author Docente de Programación III
+ * @param id ID del movimiento
+ * @param productoId ID del producto afectado
+ * @param tipo ENTRADA o SALIDA
+ * @param cantidad cantidad movida
+ * @param stockResultante cómo quedó el stock tras la operación
+ * @param motivo razón del movimiento
+ * @param fecha cuándo ocurrió
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public record MovimientoResponse(
         Long id,
         Long productoId,
-        String tipo,
+        TipoMovimiento tipo,
         int cantidad,
-        LocalDateTime fecha,
-        String motivo
+        int stockResultante,
+        String motivo,
+        LocalDateTime fecha
 ) {
-
-    /**
-     * Construye un {@code MovimientoResponse} a partir de una entidad {@link MovimientoInventario}.
-     *
-     * @param movimiento la entidad movimiento
-     * @return un nuevo {@code MovimientoResponse} con los datos del movimiento
-     */
-    public static MovimientoResponse fromMovimiento(MovimientoInventario movimiento) {
-        return new MovimientoResponse(
-                movimiento.getId(),
-                movimiento.getProductoId(),
-                movimiento.getTipo().name(),
-                movimiento.getCantidad(),
-                movimiento.getFecha(),
-                movimiento.getMotivo()
-        );
-    }
 }

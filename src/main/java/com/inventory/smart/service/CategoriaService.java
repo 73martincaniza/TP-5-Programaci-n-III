@@ -2,64 +2,56 @@ package com.inventory.smart.service;
 
 import com.inventory.smart.dto.CategoriaRequest;
 import com.inventory.smart.dto.CategoriaResponse;
-import com.inventory.smart.exception.ResourceNotFoundException;
-
 import java.util.List;
 
 /**
- * Servicio de negocio para la gestión de categorías.
- * <p>
- * Define las operaciones CRUD para categorías de productos.
- * </p>
+ * Servicio encargado de la gestión de categorías.
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public interface CategoriaService {
 
     /**
-     * Lista todas las categorías registradas.
+     * Lista todas las categorías.
      *
-     * @return lista de categorías como DTOs
+     * @return lista de respuestas de categoría
      */
     List<CategoriaResponse> findAll();
 
     /**
-     * Busca una categoría por su identificador.
+     * Busca una categoría por su ID.
      *
      * @param id identificador de la categoría
-     * @return la categoría como DTO
-     * @throws ResourceNotFoundException si no existe
+     * @return la categoría encontrada
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si no existe
      */
-    CategoriaResponse findById(Long id) throws ResourceNotFoundException;
+    CategoriaResponse findById(Long id);
 
     /**
      * Crea una nueva categoría.
      *
      * @param request datos de la categoría
-     * @return la categoría creada como DTO
+     * @return la categoría creada
      */
-    CategoriaResponse create(CategoriaRequest request);
+    CategoriaResponse crear(CategoriaRequest request);
 
     /**
      * Actualiza una categoría existente.
      *
-     * @param id      identificador de la categoría
+     * @param id identificador de la categoría a actualizar
      * @param request nuevos datos
-     * @return la categoría actualizada como DTO
-     * @throws ResourceNotFoundException si no existe
+     * @return la categoría actualizada
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si no existe
      */
-    CategoriaResponse update(Long id, CategoriaRequest request) throws ResourceNotFoundException;
+    CategoriaResponse actualizar(Long id, CategoriaRequest request);
 
     /**
-     * Elimina una categoría.
-     * <p>
-     * <b>Regla de negocio:</b> no se puede eliminar una categoría que tiene productos asociados.
-     * </p>
+     * Elimina una categoría si no tiene productos asociados.
      *
      * @param id identificador de la categoría
-     * @throws ResourceNotFoundException si no existe
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si no existe
      * @throws com.inventory.smart.exception.BusinessRuleException si tiene productos asociados
      */
-    void delete(Long id) throws ResourceNotFoundException;
+    void eliminar(Long id);
 }

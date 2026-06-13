@@ -1,154 +1,85 @@
 package com.inventory.smart.exception;
 
-import jakarta.servlet.http.HttpServletRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 
-import java.util.stream.Collectors;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Manejador global de excepciones para la API REST.
- * <p>
- * Centraliza el manejo de todas las excepciones de la aplicación, asegurando
- * que el cliente reciba respuestas de error consistentes con la estructura
- * definida en {@link ErrorResponse}.
- * </p>
- * <ul>
- *   <li>{@link ResourceNotFoundException} → 404 Not Found</li>
- *   <li>{@link InsufficientStockException} → 409 Conflict</li>
- *   <li>{@link BusinessRuleException} → 400 Bad Request</li>
- *   <li>{@link MethodArgumentNotValidException} → 400 Bad Request (errores de validación)</li>
- *   <li>Cualquier otra excepción → 500 Internal Server Error</li>
- * </ul>
+ * Manejador global de excepciones para traducir errores internos en respuestas HTTP.
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-
     /**
-     * Maneja {@link ResourceNotFoundException} retornando HTTP 404.
+     * Maneja las excepciones de recurso no encontrado (404).
      *
-     * @param ex      la excepción capturada
-     * @param request la petición web actual
-     * @return respuesta con estado 404 y detalles del error
+     * @param ex la excepción capturada
+     * @return respuesta HTTP 404 con detalles del error
      */
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex,
-                                                                 WebRequest request) {
-        log.warn("Recurso no encontrado: {}", ex.getMessage());
-        ErrorResponse error = ErrorResponse.of(
-                HttpStatus.NOT_FOUND.value(),
-                "Recurso no encontrado",
-                ex.getMessage(),
-                extractPath(request)
-        );
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    public ResponseEntity<Map<String, Object>> handleNotFound(ResourceNotFoundException ex) {
+        return buildResponse(HttpStatus.NOT_FOUND, "Recurso no encontrado", ex.getMessage());
     }
 
     /**
-     * Maneja {@link InsufficientStockException} retornando HTTP 409 Conflict.
+     * Maneja las excepciones de stock insuficiente (409).
      *
-     * @param ex      la excepción capturada
-     * @param request la petición web actual
-     * @return respuesta con estado 409 y detalles del conflicto
+     * @param ex la excepción capturada
+     * @return respuesta HTTP 409 con detalles del error
      */
     @ExceptionHandler(InsufficientStockException.class)
-    public ResponseEntity<ErrorResponse> handleInsufficientStock(InsufficientStockException ex,
-                                                                  WebRequest request) {
-        log.warn("Conflicto de stock: {}", ex.getMessage());
-        ErrorResponse error = ErrorResponse.of(
-                HttpStatus.CONFLICT.value(),
-                "Conflicto de stock",
-                ex.getMessage(),
-                extractPath(request)
-        );
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
+    public ResponseEntity<Map<String, Object>> handleInsufficientStock(InsufficientStockException ex) {
+        return buildResponse(HttpStatus.CONFLICT, "Stock insuficiente", ex.getMessage());
     }
 
     /**
-     * Maneja {@link BusinessRuleException} retornando HTTP 400 Bad Request.
+     * Maneja las excepciones de reglas de negocio (409).
      *
-     * @param ex      la excepción capturada
-     * @param request la petición web actual
-     * @return respuesta con estado 400 y descripción de la regla violada
+     * @param ex la excepción capturada
+     * @return respuesta HTTP 409 con detalles del error
      */
     @ExceptionHandler(BusinessRuleException.class)
-    public ResponseEntity<ErrorResponse> handleBusinessRule(BusinessRuleException ex,
-                                                             WebRequest request) {
-        log.warn("Regla de negocio violada: {}", ex.getMessage());
-        ErrorResponse error = ErrorResponse.of(
-                HttpStatus.BAD_REQUEST.value(),
-                "Regla de negocio violada",
-                ex.getMessage(),
-                extractPath(request)
-        );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    public ResponseEntity<Map<String, Object>> handleBusinessRule(BusinessRuleException ex) {
+        return buildResponse(HttpStatus.CONFLICT, "Conflicto de regla de negocio", ex.getMessage());
     }
 
     /**
-     * Maneja errores de validación de Jakarta Bean Validation ({@code @Valid})
-     * retornando HTTP 400 con los campos que fallaron la validación.
+     * Maneja errores de validación de argumentos de los endpoints (400).
      *
-     * @param ex      la excepción de validación
-     * @param request la petición web actual
-     * @return respuesta con estado 400 y lista de errores por campo
+     * @param ex la excepción capturada
+     * @return respuesta HTTP 400 con la lista de campos inválidos
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidationErrors(MethodArgumentNotValidException ex,
-                                                                 WebRequest request) {
-        String fieldErrors = ex.getBindingResult().getFieldErrors().stream()
-                .map(fe -> fe.getField() + ": " + fe.getDefaultMessage())
-                .collect(Collectors.joining("; "));
-        log.warn("Errores de validación: {}", fieldErrors);
-        ErrorResponse error = ErrorResponse.of(
-                HttpStatus.BAD_REQUEST.value(),
-                "Error de validación",
-                fieldErrors,
-                extractPath(request)
+    public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(error -> 
+            errors.put(error.getField(), error.getDefaultMessage())
         );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+        
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.BAD_REQUEST.value());
+        body.put("error", "Error de validación");
+        body.put("detalles", errors);
+        
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Maneja cualquier excepción no contemplada retornando HTTP 500.
-     *
-     * @param ex      la excepción genérica
-     * @param request la petición web actual
-     * @return respuesta con estado 500
-     */
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGeneral(Exception ex, WebRequest request) {
-        log.error("Error interno del servidor: {}", ex.getMessage(), ex);
-        ErrorResponse error = ErrorResponse.of(
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "Error interno del servidor",
-                "Ocurrió un error inesperado. Contacte al administrador.",
-                extractPath(request)
-        );
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
-    }
-
-    /**
-     * Extrae la ruta de la petición para incluirla en la respuesta de error.
-     *
-     * @param request la petición web
-     * @return la ruta del endpoint, o "desconocida" si no se puede determinar
-     */
-    private String extractPath(WebRequest request) {
-        String path = request.getDescription(false);
-        if (path != null && path.startsWith("uri=")) {
-            return path.substring(4);
-        }
-        return request.getDescription(false);
+    private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String error, String message) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", status.value());
+        body.put("error", error);
+        body.put("mensaje", message);
+        return new ResponseEntity<>(body, status);
     }
 }

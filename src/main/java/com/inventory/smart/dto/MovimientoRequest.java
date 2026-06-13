@@ -1,32 +1,31 @@
 package com.inventory.smart.dto;
 
 import com.inventory.smart.model.TipoMovimiento;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 
 /**
- * DTO inmutable para el registro de un movimiento de inventario.
+ * Record DTO para registrar un movimiento de inventario.
  *
- * @param productoId identificador del producto (obligatorio)
- * @param tipo       tipo de movimiento: ENTRADA o SALIDA (obligatorio)
- * @param cantidad   cantidad de unidades (positiva, obligatoria)
- * @param motivo     motivo o justificación del movimiento (obligatorio)
- *
- * @author Docente de Programación III
+ * @param productoId el producto involucrado
+ * @param tipo ENTRADA o SALIDA
+ * @param cantidad cuánto stock se mueve
+ * @param motivo por qué se realiza el movimiento
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public record MovimientoRequest(
-        @NotNull(message = "El producto es obligatorio")
+        @NotNull(message = "El ID del producto es obligatorio")
         Long productoId,
 
-        @NotNull(message = "El tipo de movimiento es obligatorio")
+        @NotNull(message = "El tipo de movimiento es obligatorio (ENTRADA o SALIDA)")
         TipoMovimiento tipo,
 
-        @Positive(message = "La cantidad debe ser positiva")
+        @Min(value = 1, message = "La cantidad debe ser mayor a 0")
         int cantidad,
 
-        @NotBlank(message = "El motivo del movimiento es obligatorio")
+        @NotBlank(message = "El motivo es obligatorio")
         String motivo
 ) {
 }

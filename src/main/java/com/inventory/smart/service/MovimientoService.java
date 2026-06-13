@@ -6,37 +6,28 @@ import com.inventory.smart.dto.MovimientoResponse;
 import java.util.List;
 
 /**
- * Servicio de negocio para la gestión de movimientos de inventario.
- * <p>
- * Define operaciones para registrar entradas/salidas y consultar el historial
- * de movimientos de un producto.
- * </p>
+ * Servicio encargado de la gestión de movimientos de inventario.
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public interface MovimientoService {
 
     /**
-     * Registra un nuevo movimiento de inventario (entrada o salida).
-     * <p>
-     * Para movimientos de tipo SALIDA, verifica que haya stock suficiente.
-     * Actualiza atómicamente el stock del producto.
-     * </p>
+     * Registra un nuevo movimiento de inventario (ENTRADA o SALIDA).
      *
-     * @param request datos del movimiento a registrar
-     * @return el movimiento registrado como DTO
-     * @throws com.inventory.smart.exception.ResourceNotFoundException  si el producto no existe
-     * @throws com.inventory.smart.exception.InsufficientStockException si es SALIDA y no hay stock suficiente
+     * @param request datos del movimiento
+     * @return el movimiento registrado
+     * @throws com.inventory.smart.exception.ResourceNotFoundException si el producto no existe
+     * @throws com.inventory.smart.exception.InsufficientStockException si no hay stock suficiente para una salida
      */
     MovimientoResponse registrarMovimiento(MovimientoRequest request);
 
     /**
-     * Recupera el historial completo de movimientos de un producto, ordenado
-     * por fecha descendente (más recientes primero).
+     * Obtiene el historial de movimientos de un producto.
      *
      * @param productoId identificador del producto
-     * @return lista de movimientos del producto como DTOs
+     * @return lista de movimientos
      */
-    List<MovimientoResponse> historialPorProducto(Long productoId);
+    List<MovimientoResponse> obtenerHistorialPorProducto(Long productoId);
 }

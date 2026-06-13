@@ -1,89 +1,80 @@
 package com.inventory.smart.model;
 
-import java.util.Objects;
-
 /**
- * Representa una categoría de productos dentro del inventario.
- * <p>
- * Clase inmutable con campos {@code final}; la igualdad se determina exclusivamente
- * por el identificador {@code id}.
- * </p>
+ * Representa una categoría que agrupa productos dentro del inventario.
  *
- * @author Docente de Programación III
+ * @author Grupo 3 - Inventario Inteligente
  * @since 1.0
  */
 public class Categoria {
-
-    /** Identificador único de la categoría. */
-    private final Long id;
-
-    /** Nombre descriptivo de la categoría. */
-    private final String nombre;
-
-    /** Descripción extendida de la categoría. */
-    private final String descripcion;
+    private Long id;
+    private String nombre;
+    private String descripcion;
 
     /**
-     * Construye una nueva categoría con todos sus atributos.
+     * Crea una nueva categoría.
      *
-     * @param id          identificador único (puede ser {@code null} para nuevas)
-     * @param nombre      nombre de la categoría
-     * @param descripcion descripción de la categoría
-     * @throws NullPointerException si {@code nombre} o {@code descripcion} son {@code null}
+     * @param id el identificador único de la categoría (puede ser nulo antes de guardarse)
+     * @param nombre el nombre de la categoría
+     * @param descripcion la descripción de la categoría
      */
     public Categoria(Long id, String nombre, String descripcion) {
         this.id = id;
-        this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
-        this.descripcion = Objects.requireNonNull(descripcion, "La descripción no puede ser nula");
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     /**
-     * @return el identificador único de la categoría
+     * Obtiene el identificador de la categoría.
+     *
+     * @return el identificador
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * @return el nombre de la categoría
+     * Establece el identificador de la categoría.
+     *
+     * @param id el nuevo identificador
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Obtiene el nombre de la categoría.
+     *
+     * @return el nombre
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * @return la descripción de la categoría
+     * Establece el nombre de la categoría.
+     *
+     * @param nombre el nuevo nombre
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Obtiene la descripción de la categoría.
+     *
+     * @return la descripción
      */
     public String getDescripcion() {
         return descripcion;
     }
 
     /**
-     * Compara por igualdad basándose exclusivamente en el {@code id}.
+     * Establece la descripción de la categoría.
      *
-     * @param o el objeto a comparar
-     * @return {@code true} si ambos tienen el mismo {@code id} no nulo
+     * @param descripcion la nueva descripción
      */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Categoria that)) return false;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    /**
-     * @return código hash basado en el {@code id}
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    /**
-     * @return representación en cadena de la categoría
-     */
-    @Override
-    public String toString() {
-        return "Categoria{id=" + id + ", nombre='" + nombre + "', descripcion='" + descripcion + "'}";
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
