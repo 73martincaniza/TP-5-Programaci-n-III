@@ -1,0 +1,376 @@
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\SmartInventoryApplication.java:3: error: package org.springframework.boot does not exist
+import org.springframework.boot.SpringApplication;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\SmartInventoryApplication.java:4: error: package org.springframework.boot.autoconfigure does not exist
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+                                             ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\SmartInventoryApplication.java:15: error: cannot find symbol
+@SpringBootApplication
+ ^
+  symbol: class SpringBootApplication
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:7: error: package org.slf4j does not exist
+import org.slf4j.Logger;
+                ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:8: error: package org.slf4j does not exist
+import org.slf4j.LoggerFactory;
+                ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:9: error: package org.springframework.boot does not exist
+import org.springframework.boot.CommandLineRunner;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:10: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Component;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:28: error: cannot find symbol
+public class DataInitializer implements CommandLineRunner {
+                                        ^
+  symbol: class CommandLineRunner
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:27: error: cannot find symbol
+@Component
+ ^
+  symbol: class Component
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\DataInitializer.java:30: error: cannot find symbol
+    private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
+                         ^
+  symbol:   class Logger
+  location: class DataInitializer
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\StockConfig.java:3: error: package org.springframework.boot.context.properties does not exist
+import org.springframework.boot.context.properties.ConfigurationProperties;
+                                                  ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\StockConfig.java:4: error: package org.springframework.context.annotation does not exist
+import org.springframework.context.annotation.Configuration;
+                                             ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\StockConfig.java:13: error: cannot find symbol
+@Configuration
+ ^
+  symbol: class Configuration
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\config\StockConfig.java:14: error: cannot find symbol
+@ConfigurationProperties(prefix = "inventario.stock")
+ ^
+  symbol: class ConfigurationProperties
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:4: error: package org.springframework.http does not exist
+import org.springframework.http.ResponseEntity;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:5: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.GetMapping;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:6: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.RequestMapping;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:7: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.RestController;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:17: error: cannot find symbol
+@RestController
+ ^
+  symbol: class RestController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:18: error: cannot find symbol
+@RequestMapping("/api/admin")
+ ^
+  symbol: class RequestMapping
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\PerformanceReportService.java:7: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Service;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\PerformanceReportService.java:20: error: cannot find symbol
+@Service
+ ^
+  symbol: class Service
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AdminController.java:38: error: cannot find symbol
+    public ResponseEntity<Map<String, Object>> performanceReport() {
+           ^
+  symbol:   class ResponseEntity
+  location: class AdminController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:5: error: package org.springframework.http does not exist
+import org.springframework.http.ResponseEntity;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:6: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.GetMapping;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:7: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.RequestMapping;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:8: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.RestController;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:18: error: cannot find symbol
+@RestController
+ ^
+  symbol: class RestController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:19: error: cannot find symbol
+@RequestMapping("/api/alertas")
+ ^
+  symbol: class RequestMapping
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\AlertaController.java:39: error: cannot find symbol
+    public ResponseEntity<List<AlertaStockResponse>> stockBajo() {
+           ^
+  symbol:   class ResponseEntity
+  location: class AlertaController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:6: error: package jakarta.validation does not exist
+import jakarta.validation.Valid;
+                         ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:7: error: package org.springframework.http does not exist
+import org.springframework.http.HttpStatus;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:8: error: package org.springframework.http does not exist
+import org.springframework.http.ResponseEntity;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:19: error: cannot find symbol
+@RestController
+ ^
+  symbol: class RestController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:20: error: cannot find symbol
+@RequestMapping("/api/categorias")
+ ^
+  symbol: class RequestMapping
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:40: error: cannot find symbol
+    public ResponseEntity<List<CategoriaResponse>> listar() {
+           ^
+  symbol:   class ResponseEntity
+  location: class CategoriaController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:51: error: cannot find symbol
+    public ResponseEntity<CategoriaResponse> buscarPorId(@PathVariable Long id) {
+           ^
+  symbol:   class ResponseEntity
+  location: class CategoriaController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\CategoriaRequest.java:3: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.NotBlank;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\CategoriaRequest.java:4: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.Size;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:62: error: cannot find symbol
+    public ResponseEntity<CategoriaResponse> crear(@Valid @RequestBody CategoriaRequest request) {
+           ^
+  symbol:   class ResponseEntity
+  location: class CategoriaController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:74: error: cannot find symbol
+    public ResponseEntity<CategoriaResponse> actualizar(@PathVariable Long id, @Valid @RequestBody CategoriaRequest request) {
+           ^
+  symbol:   class ResponseEntity
+  location: class CategoriaController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:85: error: cannot find symbol
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+           ^
+  symbol:   class ResponseEntity
+  location: class CategoriaController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\CategoriaController.java:9: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.*;
+                                   ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:6: error: package jakarta.validation does not exist
+import jakarta.validation.Valid;
+                         ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:7: error: package org.springframework.http does not exist
+import org.springframework.http.HttpStatus;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:8: error: package org.springframework.http does not exist
+import org.springframework.http.ResponseEntity;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:19: error: cannot find symbol
+@RestController
+ ^
+  symbol: class RestController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:20: error: cannot find symbol
+@RequestMapping("/api/movimientos")
+ ^
+  symbol: class RequestMapping
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\MovimientoRequest.java:4: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.Min;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\MovimientoRequest.java:5: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.NotBlank;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\MovimientoRequest.java:6: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.NotNull;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:41: error: cannot find symbol
+    public ResponseEntity<MovimientoResponse> registrarMovimiento(@Valid @RequestBody MovimientoRequest request) {
+           ^
+  symbol:   class ResponseEntity
+  location: class MovimientoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:52: error: cannot find symbol
+    public ResponseEntity<List<MovimientoResponse>> historialPorProducto(@PathVariable Long id) {
+           ^
+  symbol:   class ResponseEntity
+  location: class MovimientoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\MovimientoController.java:9: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.*;
+                                   ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:6: error: package jakarta.validation does not exist
+import jakarta.validation.Valid;
+                         ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:7: error: package org.springframework.http does not exist
+import org.springframework.http.HttpStatus;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:8: error: package org.springframework.http does not exist
+import org.springframework.http.ResponseEntity;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:20: error: cannot find symbol
+@RestController
+ ^
+  symbol: class RestController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:21: error: cannot find symbol
+@RequestMapping("/api/productos")
+ ^
+  symbol: class RequestMapping
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:45: error: cannot find symbol
+    public ResponseEntity<List<ProductoResponse>> listar(
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:60: error: cannot find symbol
+    public ResponseEntity<ProductoResponse> buscarPorId(@PathVariable Long id) {
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\ProductoRequest.java:3: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.NotBlank;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\ProductoRequest.java:4: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.NotNull;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\ProductoRequest.java:5: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.PositiveOrZero;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\dto\ProductoRequest.java:6: error: package jakarta.validation.constraints does not exist
+import jakarta.validation.constraints.Size;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:71: error: cannot find symbol
+    public ResponseEntity<ProductoResponse> crear(@Valid @RequestBody ProductoRequest request) {
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:84: error: cannot find symbol
+    public ResponseEntity<ProductoResponse> actualizar(@PathVariable Long id, @Valid @RequestBody ProductoRequest request) {
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:95: error: cannot find symbol
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:107: error: cannot find symbol
+    public ResponseEntity<List<ProductoResponse>> buscar(@RequestParam String q) {
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:119: error: cannot find symbol
+    public ResponseEntity<List<ProductoResponse>> ordenados(
+           ^
+  symbol:   class ResponseEntity
+  location: class ProductoController
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\controller\ProductoController.java:9: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.*;
+                                   ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:3: error: package org.springframework.http does not exist
+import org.springframework.http.HttpStatus;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:4: error: package org.springframework.http does not exist
+import org.springframework.http.ResponseEntity;
+                               ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:5: error: package org.springframework.web.bind does not exist
+import org.springframework.web.bind.MethodArgumentNotValidException;
+                                   ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:6: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.ControllerAdvice;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:7: error: package org.springframework.web.bind.annotation does not exist
+import org.springframework.web.bind.annotation.ExceptionHandler;
+                                              ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:19: error: cannot find symbol
+@ControllerAdvice
+ ^
+  symbol: class ControllerAdvice
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:29: error: cannot find symbol
+    public ResponseEntity<Map<String, Object>> handleNotFound(ResourceNotFoundException ex) {
+           ^
+  symbol:   class ResponseEntity
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:40: error: cannot find symbol
+    public ResponseEntity<Map<String, Object>> handleInsufficientStock(InsufficientStockException ex) {
+           ^
+  symbol:   class ResponseEntity
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:51: error: cannot find symbol
+    public ResponseEntity<Map<String, Object>> handleBusinessRule(BusinessRuleException ex) {
+           ^
+  symbol:   class ResponseEntity
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:62: error: cannot find symbol
+    public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+                                                                          ^
+  symbol:   class MethodArgumentNotValidException
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:62: error: cannot find symbol
+    public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+           ^
+  symbol:   class ResponseEntity
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:77: error: cannot find symbol
+    private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String error, String message) {
+                                                              ^
+  symbol:   class HttpStatus
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\exception\GlobalExceptionHandler.java:77: error: cannot find symbol
+    private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String error, String message) {
+            ^
+  symbol:   class ResponseEntity
+  location: class GlobalExceptionHandler
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\repository\InMemoryCategoriaRepository.java:4: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Repository;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\repository\InMemoryCategoriaRepository.java:12: error: cannot find symbol
+@Repository
+ ^
+  symbol: class Repository
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\repository\InMemoryMovimientoRepository.java:4: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Repository;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\repository\InMemoryMovimientoRepository.java:16: error: cannot find symbol
+@Repository
+ ^
+  symbol: class Repository
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\repository\InMemoryProductoRepository.java:4: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Repository;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\repository\InMemoryProductoRepository.java:15: error: cannot find symbol
+@Repository
+ ^
+  symbol: class Repository
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\AlertaServiceImpl.java:9: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Service;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\AlertaServiceImpl.java:20: error: cannot find symbol
+@Service
+ ^
+  symbol: class Service
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\CategoriaServiceImpl.java:10: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Service;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\CategoriaServiceImpl.java:21: error: cannot find symbol
+@Service
+ ^
+  symbol: class Service
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\DefaultAlertaStrategy.java:6: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Component;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\DefaultAlertaStrategy.java:14: error: cannot find symbol
+@Component
+ ^
+  symbol: class Component
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\MovimientoServiceImpl.java:12: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Service;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\MovimientoServiceImpl.java:24: error: cannot find symbol
+@Service
+ ^
+  symbol: class Service
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\ProductoServiceImpl.java:11: error: package org.springframework.stereotype does not exist
+import org.springframework.stereotype.Service;
+                                     ^
+C:\Users\Buchii\Desktop\111\Parcial\TP-5-Programaci-n-III\src\main\java\com\inventory\smart\service\ProductoServiceImpl.java:24: error: cannot find symbol
+@Service
+ ^
+  symbol: class Service
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+only showing the first 100 errors, of 187 total; use -Xmaxerrs if you would like to see more
