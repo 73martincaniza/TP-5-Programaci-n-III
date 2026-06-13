@@ -1,9 +1,13 @@
 TRABAJO PRÁCTICO N° 5: GESTIÓN DE INVENTARIO INTELIGENTE
 
 Integrantes
+
 Martin Ignacio Caniza Astorga EISI1288
+
 Peredo Yucra José David EISI1422  
+
 Neyra Molina Lucas Ismael EISI1535  
+
 Alberto Morales Aveiro EISI1528
 
 Cómo ejecutar el proyecto
