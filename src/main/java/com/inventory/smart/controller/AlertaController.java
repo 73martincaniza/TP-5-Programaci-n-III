@@ -39,4 +39,4 @@ public class AlertaController {
     public ResponseEntity<List<AlertaStockResponse>> stockBajo() {
         return ResponseEntity.ok(alertaService.obtenerAlertasStockBajo());
     }
-}
+
