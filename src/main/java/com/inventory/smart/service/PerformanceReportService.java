@@ -90,4 +90,4 @@ public class PerformanceReportService {
 
         return mediciones;
     }
-}
+}}
