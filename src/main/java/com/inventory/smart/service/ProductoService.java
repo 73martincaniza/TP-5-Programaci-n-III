@@ -39,7 +39,7 @@ public interface ProductoService {
      * @param request datos del producto
      * @return producto creado
      */
-    ProductoResponse crear(ProductoRequest request);
+    ProductoResponse crear(ProductoRequest );
 
     /**
      * Actualiza un producto existente.
